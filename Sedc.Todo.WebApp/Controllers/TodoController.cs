@@ -31,14 +31,15 @@ namespace Sedc.Todo.WebApp.Controllers
 
         public IActionResult Yesterday()
         {
-            var date = DateTime.Today.AddDays(-1);
+            ViewBag.TodoDate = DateTime.Today.AddDays(-1);
+            ViewBag.DayLabel = "Yesterday";
 
             var todos = new List<Models.Todo>
             {
                 // yesterday
-                new Models.Todo{Title = "Yesterday Todo 1", Description = "Yesterday Todo 1 Description", DueDate = date},
-                new Models.Todo{Title = "Yesterday Todo 2", Description = "Yesterday Todo 2 Description", DueDate = date.AddHours(6)},
-                new Models.Todo{Title = "Yesterday Todo 3", Description = "Yesterday Todo 3 Description", DueDate = date.AddHours(12)},
+                new Models.Todo{Title = "Yesterday Todo 1", Description = "Yesterday Todo 1 Description", DueDate = ViewBag.TodoDate},
+                new Models.Todo{Title = "Yesterday Todo 2", Description = "Yesterday Todo 2 Description", DueDate = ViewBag.TodoDate.AddHours(6)},
+                new Models.Todo{Title = "Yesterday Todo 3", Description = "Yesterday Todo 3 Description", DueDate = ViewBag.TodoDate.AddHours(12)},
             };
 
             return View("~/Views/Todo/Index.cshtml", todos);
@@ -46,14 +47,15 @@ namespace Sedc.Todo.WebApp.Controllers
 
         public IActionResult Today()
         {
-            var date = DateTime.Today;
+            ViewBag.TodoDate = DateTime.Today;
+            ViewBag.DayLabel = "Today";
 
             var todos = new List<Models.Todo>
             {
                 // today
-                new Models.Todo{Title = "Today Todo 1", Description = "Today Todo 1 Description", DueDate = date},
-                new Models.Todo{Title = "Today Todo 2", Description = "Today Todo 2 Description", DueDate = date.AddHours(6)},
-                new Models.Todo{Title = "Today Todo 3", Description = "Today Todo 3 Description", DueDate = date.AddHours(12)},
+                new Models.Todo{Title = "Today Todo 1", Description = "Today Todo 1 Description", DueDate = ViewBag.TodoDate},
+                new Models.Todo{Title = "Today Todo 2", Description = "Today Todo 2 Description", DueDate = ViewBag.TodoDate.AddHours(6)},
+                new Models.Todo{Title = "Today Todo 3", Description = "Today Todo 3 Description", DueDate = ViewBag.TodoDate.AddHours(12)},
             };
 
             return View("~/Views/Todo/Index.cshtml", todos);
@@ -61,14 +63,15 @@ namespace Sedc.Todo.WebApp.Controllers
 
         public IActionResult Tomorrow()
         {
-            var date = DateTime.Today.AddDays(1);
+            ViewBag.TodoDate = DateTime.Today.AddDays(1);
+            ViewBag.DayLabel = "Tomorrow";
 
             var todos = new List<Models.Todo>
             {
                 // tomorrow
-                new Models.Todo{Title = "Tomorrow Todo 1", Description = "Tomorrow Todo 1 Description", DueDate = date},
-                new Models.Todo{Title = "Tomorrow Todo 2", Description = "Tomorrow Todo 2 Description", DueDate = date.AddHours(6)},
-                new Models.Todo{Title = "Tomorrow Todo 3", Description = "Tomorrow Todo 3 Description", DueDate = date.AddHours(12)},
+                new Models.Todo{Title = "Tomorrow Todo 1", Description = "Tomorrow Todo 1 Description", DueDate = ViewBag.TodoDate},
+                new Models.Todo{Title = "Tomorrow Todo 2", Description = "Tomorrow Todo 2 Description", DueDate = ViewBag.TodoDate.AddHours(6)},
+                new Models.Todo{Title = "Tomorrow Todo 3", Description = "Tomorrow Todo 3 Description", DueDate = ViewBag.TodoDate.AddHours(12)},
             };
 
             return View("~/Views/Todo/Index.cshtml", todos);
