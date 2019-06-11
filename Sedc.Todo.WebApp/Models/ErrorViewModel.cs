@@ -1,6 +1,4 @@
-using System;
-
-namespace Sedc.Todo.Models
+namespace Sedc.Todo.WebApp.Models
 {
     public class ErrorViewModel
     {
